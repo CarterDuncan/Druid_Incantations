@@ -24,7 +24,7 @@ public class Spawn_Flower : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Player = GameObject.Find("Player");
+        Player = GameObject.Find("LeftHandAnchor");
         flower_count = 0;
 		
 	}
@@ -74,6 +74,7 @@ public class Spawn_Flower : MonoBehaviour {
     void CreateElements()
     {
         Debug.Log("Entered Function");
+        Player = GameObject.Find("LeftHandAnchor");
         for (int i = 0; i < NumElements; i++)
         {
             Debug.Log("Entered Loop");
@@ -88,13 +89,16 @@ public class Spawn_Flower : MonoBehaviour {
 
             //create the object as a transform
             Transform elem;
-            elem = Instantiate(sunflower, Player.transform.position, Player.transform.rotation) as Transform;
+
+            elem = Instantiate(prefab, Player.transform.position, Player.transform.rotation) as Transform;
 
             elem.name = objectName;
 
             //update the position and rotation of the object
             elem.transform.Rotate(new Vector3(0, currentRotation, 0));
             elem.transform.Translate(new Vector3(DistFromPlayer, 5, 0));
+
+            //Make adjustments, so not so many and maybe tinker position/spacing
         }
     }
 
