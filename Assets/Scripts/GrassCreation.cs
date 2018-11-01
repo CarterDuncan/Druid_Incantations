@@ -7,7 +7,7 @@ public class GrassCreation : MonoBehaviour {
     public Transform grass;
     public GameObject Behind_Player;
     CharacterController controller;
-    public static int grass_counter;
+    public int grass_counter;
     public int dist_travelled;
 
 
@@ -36,6 +36,10 @@ public class GrassCreation : MonoBehaviour {
             Instantiate(grass, Behind_Player.transform.position, Behind_Player.transform.rotation);
             grass_counter++;
             WaitAndCreate(200.0F);
+        }
+        if (grass_counter >= 100)
+        {
+            Debug.Log("Grass Quota Reached");
         }
 	}
 

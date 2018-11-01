@@ -34,7 +34,15 @@ public class Spawn_Flower : MonoBehaviour {
         {
             //Debug.Log("Button Pressed");
             //SpawnFlower();
-            CreateElements();
+            if(flower_count < 50)
+            {
+                CreateElements();
+            }
+            if(flower_count >=50)
+            {
+                Debug.Log("Flower Quota Reached");
+            }
+           
         }
 	}
     //creats a volly of flowers at origin!?! Need to fix position
