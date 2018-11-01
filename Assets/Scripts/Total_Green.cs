@@ -6,10 +6,14 @@ public class Total_Green : MonoBehaviour {
     static int total_green;
     public GameObject sunflower;
     public TerrainData terrainData;
+
+    public static FogMode fogDensity;
+    public static bool fog;
+
     //public Component GetComponent(Type type);
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         total_green = 0;
         Debug.Log("I work");
 	}
@@ -18,6 +22,13 @@ public class Total_Green : MonoBehaviour {
 	void Update () {
         if (Instantiate(sunflower))
             total_green++;
+        if (total_green > 15 && total_green < 30)
+            fogDensity = FogMode.Exponential;
+        else if (total_green > 30 && total_green < 45)
+            fogDensity = FogMode.Linear;
+        else
+            fog = false; 
+        
         //ChangeTerrainColor(terrainData);
     }
     /*public void ChangeTerrainColor(TerrainData terrainData) {

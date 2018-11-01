@@ -20,8 +20,6 @@ public class Spawn_Flower : MonoBehaviour {
     //how many elements have been created
     private int generatedElementsCount = 0;
 
-
-
     // Use this for initialization
     void Start () {
         Player = GameObject.Find("LeftHandAnchor");
@@ -34,50 +32,25 @@ public class Spawn_Flower : MonoBehaviour {
         //if "A" pressed this frame
 		if (OVRInput.GetDown(OVRInput.Button.One))
         {
-            Debug.Log("Button Pressed");
-            //Instantiate
+            //Debug.Log("Button Pressed");
             //SpawnFlower();
-            //SpawnPlant
             CreateElements();
-        }
-        //if A released this frame
-        if (OVRInput.GetUp(OVRInput.RawButton.X))
-        {
-            Debug.Log("Button released");
-            flower_count++;
         }
 	}
     //creats a volly of flowers at origin!?! Need to fix position
     void SpawnFlower()
     {
-        Debug.Log("Flower Spawned");
+        //Debug.Log("Flower Spawned");
         for (int i = 0; i < 10; i++)
         {
             Instantiate(prefab, new Vector3(i * 2.0F, 0, 0), Quaternion.identity);
         }
-    }
-    //haven't tessted but idea to create and launch flower to floor like projectile, will need to tweak velocity so lands perfectly
-    void SpawnPlant()
-    {
-        // Ctrl was pressed, launch a projectile
-        if (Input.GetButtonDown("Fire1"))
-        {
-            // Instantiate the projectile at the position and rotation of this transform
-            Rigidbody clone;
-            clone = Instantiate(plant, transform.position, transform.rotation);
-
-            // Give the cloned object an initial velocity along the current
-            // object's Z axis
-            clone.velocity = transform.TransformDirection(Vector3.forward * 10);
-        }
-    }
+    }    
     void CreateElements()
     {
-        Debug.Log("Entered Function");
         Player = GameObject.Find("LeftHandAnchor");
         for (int i = 0; i < NumElements; i++)
         {
-            Debug.Log("Entered Loop");
             //update total elements created
             generatedElementsCount++;
             //name of the instatntiated object
@@ -96,8 +69,9 @@ public class Spawn_Flower : MonoBehaviour {
 
             //update the position and rotation of the object
             elem.transform.Rotate(new Vector3(0, currentRotation, 0));
-            elem.transform.Translate(new Vector3(DistFromPlayer, 5, 0));
+            elem.transform.Translate(new Vector3(DistFromPlayer, 0, 0));
 
+            flower_count++;
             //Make adjustments, so not so many and maybe tinker position/spacing
         }
     }
