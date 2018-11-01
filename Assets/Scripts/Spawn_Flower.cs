@@ -38,7 +38,7 @@ public class Spawn_Flower : MonoBehaviour {
             {
                 CreateElements();
             }
-            if(flower_count >=50)
+            if(flower_count ==50)
             {
                 Debug.Log("Flower Quota Reached");
             }

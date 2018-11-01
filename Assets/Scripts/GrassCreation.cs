@@ -8,6 +8,7 @@ public class GrassCreation : MonoBehaviour {
     public GameObject Behind_Player;
     CharacterController controller;
     public int grass_counter;
+    public int debug_counter;
     public int dist_travelled;
 
 
@@ -28,20 +29,20 @@ public class GrassCreation : MonoBehaviour {
 
         // The speed on the x-z plane ignoring any speed
         float horizontalSpeed = horizontalVelocity.magnitude;
-      
-        
-        if (horizontalSpeed > 0 && grass_counter < 100)
-        {
-            dist_travelled = 0;
-            Instantiate(grass, Behind_Player.transform.position, Behind_Player.transform.rotation);
-            grass_counter++;
-            WaitAndCreate(200.0F);
-        }
-        if (grass_counter >= 100)
-        {
-            Debug.Log("Grass Quota Reached");
-        }
-	}
+
+            if (horizontalSpeed > 0 && grass_counter < 100)
+            {
+                dist_travelled = 0;
+                Instantiate(grass, Behind_Player.transform.position, Behind_Player.transform.rotation);
+                grass_counter++;
+                WaitAndCreate(200.0F);
+            }
+            if (grass_counter == 100 && debug_counter == 0)
+            {
+                Debug.Log("Grass Quota Reached");
+                debug_counter++;
+            }
+    }
 
     //suspend execution of create grass for waitTime seconds 
     IEnumerator WaitAndCreate(float waitTime)
