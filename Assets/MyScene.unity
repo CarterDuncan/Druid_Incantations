@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.02
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -10787,7 +10787,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1749340842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 224.2, y: 3.201, z: 197.1}
+  m_LocalPosition: {x: 224.2, y: 3.414, z: 197.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1457121820}
@@ -10809,6 +10809,7 @@ MonoBehaviour:
   grass: {fileID: 1390292555}
   Behind_Player: {fileID: 1855794661}
   grass_counter: 0
+  debug_counter: 0
   dist_travelled: 0
 --- !u!1 &1750890745 stripped
 GameObject:
