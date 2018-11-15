@@ -9,7 +9,7 @@ public class Spawn_Flower : MonoBehaviour {
     Rigidbody plant;
 
     //number of elements to be initiated 
-    public int NumElements = 5;
+    public int NumElements = 1;
     //the transform object to be initiated
     public Transform prefab;
 

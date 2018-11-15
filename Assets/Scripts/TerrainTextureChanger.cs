@@ -8,13 +8,14 @@ public class TerrainTextureChanger : MonoBehaviour
     public Terrain terrain;
     //GameObject TextureIn = Texture3D;
 
+
     private void Start()
     {
 
     }
 
     void Update()
-    {
+    {        
         //Terrain.renderer.material.SetTexture = TextureIn;
         if (Input.GetKeyDown(KeyCode.Space))
         {
