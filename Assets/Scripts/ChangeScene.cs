@@ -14,17 +14,26 @@ public class ChangeScene: MonoBehaviour {
 
         void Update()
     {
-        //if "A" pressed this frame
-        if (OVRInput.GetDown(OVRInput.Button.One))
+        //if "Y" pressed this frame
+        if (OVRInput.GetDown(OVRInput.Button.Four))
         {
             changeScene();
         }
+        //if "X" pressed this frame
+        if (OVRInput.GetDown(OVRInput.Button.Three))
+        {
+            changeScene2();
+        }
     }
 
-            public void changeScene()
+    public void changeScene()
     {
         SceneManager.LoadScene("MyScene");
     }
+    public void changeScene2()
+    {
+        SceneManager.LoadScene("UI");
+    }
 
-	
+
 }
