@@ -36,7 +36,8 @@ public class GrassCreation : MonoBehaviour
 
         // The speed on the x-z plane ignoring any speed
         float horizontalSpeed = horizontalVelocity.magnitude;
-        if (updateCounter/100 == 1)
+        if (updateCounter / 50 == 1)
+        {
             if (horizontalSpeed > 0 && grass_counter < 100)
             {
                 dist_travelled = 0;
@@ -45,6 +46,7 @@ public class GrassCreation : MonoBehaviour
                 WaitAndCreate(200.0F);
                 updateCounter = 0;
             }
+        }
         if (grass_counter == 100 && debug_counter == 0)
         {
             Debug.Log("Grass Quota Reached");
