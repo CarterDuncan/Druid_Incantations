@@ -18,7 +18,6 @@ public class GrassCreation : MonoBehaviour
     // Use this for initialization and for coroutine 
     IEnumerator Start()
     {
-        updateCounter = 0;
         Behind_Player = GameObject.Find("Avatar Trail");
         controller = GetComponent<CharacterController>();
         grass_counter = 0;
@@ -29,21 +28,23 @@ public class GrassCreation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        updateCounter++;
 
+        updateCounter++;
         Vector3 horizontalVelocity = controller.velocity;
         horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z);
 
+        fps = 1 * Time.deltaTime;
+        Debug.Log(fps);
+
         // The speed on the x-z plane ignoring any speed
         float horizontalSpeed = horizontalVelocity.magnitude;
-        if (updateCounter/100 == 1)
+        if (updateCounter % fps == 1)
             if (horizontalSpeed > 0 && grass_counter < 100)
             {
                 dist_travelled = 0;
                 Instantiate(grass, Behind_Player.transform.position, Behind_Player.transform.rotation);
                 grass_counter++;
                 WaitAndCreate(200.0F);
-                updateCounter = 0;
             }
         if (grass_counter == 100 && debug_counter == 0)
         {

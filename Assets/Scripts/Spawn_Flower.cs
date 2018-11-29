@@ -63,6 +63,10 @@ public class Spawn_Flower : MonoBehaviour {
             generatedElementsCount++;
             //name of the instatntiated object
             string objectName = "Element_" + generatedElementsCount;
+            //angle of instantiated object
+            float angleIteration = 360 / NumElements;
+            //rotation of instantiation object
+            float currentRotation = angleIteration;
 
             //create the object as a transform
             Transform elem;
@@ -73,11 +77,11 @@ public class Spawn_Flower : MonoBehaviour {
             elem = Instantiate(prefab, PlayerPosition.position, Player.transform.rotation) as Transform;
 
             elem.name = objectName;
-      
+
             //update the position and rotation of the object
-            elem.transform.Rotate(new Vector3(0, 0, 0));
+            elem.transform.Rotate(new Vector3(0, currentRotation, 0));
             elem.transform.Translate(new Vector3(DistFromPlayer, 0, 0));
-           
+
             flower_count++;
             //Make adjustments, so not so many and maybe tinker position/spacing
     }
