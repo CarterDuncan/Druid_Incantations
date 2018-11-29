@@ -75,7 +75,7 @@ public class Spawn_Flower : MonoBehaviour {
             elem.name = objectName;
       
             //update the position and rotation of the object
-            elem.transform.Rotate(new Vector3(0, 0, 0));
+            //elem.transform.Rotate(new Vector3(0, 0, 0));
             elem.transform.Translate(new Vector3(DistFromPlayer, 0, 0));
            
             flower_count++;
