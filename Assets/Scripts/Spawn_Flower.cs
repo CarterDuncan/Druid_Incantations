@@ -47,15 +47,6 @@ public class Spawn_Flower : MonoBehaviour {
            
         }
 	}
-    //creats a volly of flowers at origin!?! Need to fix position
-    void SpawnFlower()
-    {
-        //Debug.Log("Flower Spawned");
-        for (int i = 0; i < 10; i++)
-        {
-            Instantiate(prefab, new Vector3(i * 2.0F, 0, 0), Quaternion.identity);
-        }
-    }    
     void CreateElements()
     {
         Player = GameObject.Find("LeftHandAnchor");
