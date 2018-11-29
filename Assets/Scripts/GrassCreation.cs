@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrassCreation : MonoBehaviour {
+public class GrassCreation : MonoBehaviour
+{
 
     public Transform grass;
     public GameObject Behind_Player;
@@ -10,6 +11,8 @@ public class GrassCreation : MonoBehaviour {
     public int grass_counter;
     public int debug_counter;
     public int dist_travelled;
+    public int updateCounter;
+    public float fps;
 
 
     // Use this for initialization and for coroutine 
@@ -21,15 +24,21 @@ public class GrassCreation : MonoBehaviour {
 
         yield return StartCoroutine(WaitAndCreate(200.0F));
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+        updateCounter++;
         Vector3 horizontalVelocity = controller.velocity;
         horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z);
 
+        fps = 1 * Time.deltaTime;
+        Debug.Log(fps);
+
         // The speed on the x-z plane ignoring any speed
         float horizontalSpeed = horizontalVelocity.magnitude;
-
+        if (updateCounter % fps == 1)
             if (horizontalSpeed > 0 && grass_counter < 100)
             {
                 dist_travelled = 0;
@@ -37,48 +46,17 @@ public class GrassCreation : MonoBehaviour {
                 grass_counter++;
                 WaitAndCreate(200.0F);
             }
-            if (grass_counter == 100 && debug_counter == 0)
-            {
-                Debug.Log("Grass Quota Reached");
-                debug_counter++;
-            }
+        if (grass_counter == 100 && debug_counter == 0)
+        {
+            Debug.Log("Grass Quota Reached");
+            debug_counter++;
+        }
     }
 
     //suspend execution of create grass for waitTime seconds 
     IEnumerator WaitAndCreate(float waitTime)
     {
-            yield return new WaitForSeconds(waitTime);
-            print("WaitAndCreate " + Time.time);
+        yield return new WaitForSeconds(waitTime);
+        print("WaitAndCreate " + Time.time);
     }
-
-
-
-
-
-    /*private IEnumerator coroutine;
-
-    void Start()
-    {
-        // - After 0 seconds, prints "Starting 0.0"
-        // - After 0 seconds, prints "Before WaitAndPrint Finishes 0.0"
-        // - After 2 seconds, prints "WaitAndPrint 2.0"
-        print("Starting " + Time.time);
-
-        // Start function WaitAndPrint as a coroutine.
-
-        coroutine = WaitAndPrint(2.0f);
-        StartCoroutine(coroutine);
-
-        print("Before WaitAndPrint Finishes " + Time.time);
-    }
-
-    // every 2 seconds perform the print()
-    private IEnumerator WaitAndPrint(float waitTime)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(waitTime);
-            print("WaitAndPrint " + Time.time);
-        }
-    }*/
 }

@@ -8,6 +8,8 @@ public class Spawn_Flower : MonoBehaviour {
     public Transform sunflower;
     Rigidbody plant;
 
+    public float flowerPosY = 1.989994f;
+
     //number of elements to be initiated 
     public int NumElements = 1;
     //the transform object to be initiated
@@ -57,8 +59,6 @@ public class Spawn_Flower : MonoBehaviour {
     void CreateElements()
     {
         Player = GameObject.Find("LeftHandAnchor");
-        for (int i = 0; i < NumElements; i++)
-        {
             //update total elements created
             generatedElementsCount++;
             //name of the instatntiated object
@@ -66,12 +66,15 @@ public class Spawn_Flower : MonoBehaviour {
             //angle of instantiated object
             float angleIteration = 360 / NumElements;
             //rotation of instantiation object
-            float currentRotation = angleIteration * i;
+            float currentRotation = angleIteration;
 
             //create the object as a transform
             Transform elem;
 
-            elem = Instantiate(prefab, Player.transform.position, Player.transform.rotation) as Transform;
+            Transform PlayerPosition = Player.transform; 
+            PlayerPosition.position = new Vector3(Player.transform.position.x, flowerPosY, Player.transform.position.z);
+
+            elem = Instantiate(prefab, PlayerPosition.position, Player.transform.rotation) as Transform;
 
             elem.name = objectName;
 
@@ -81,7 +84,6 @@ public class Spawn_Flower : MonoBehaviour {
 
             flower_count++;
             //Make adjustments, so not so many and maybe tinker position/spacing
-        }
     }
 
 }
