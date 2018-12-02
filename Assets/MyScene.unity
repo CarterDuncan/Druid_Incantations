@@ -3008,7 +3008,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ebd0d62f22fb7445a7c987c351a8d92, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9299889
+      value: 2.095
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ebd0d62f22fb7445a7c987c351a8d92, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3141,8 +3141,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.04
+  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!1001 &774552019
 Prefab:
   m_ObjectHideFlags: 0
@@ -5794,7 +5794,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ebd0d62f22fb7445a7c987c351a8d92, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9299889
+      value: 2.115
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ebd0d62f22fb7445a7c987c351a8d92, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6627,8 +6627,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.04
+  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!4 &1390292555 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 2ebd0d62f22fb7445a7c987c351a8d92, type: 3}
@@ -6840,7 +6840,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ebd0d62f22fb7445a7c987c351a8d92, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9299889
+      value: 2.09
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2ebd0d62f22fb7445a7c987c351a8d92, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7291,8 +7291,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.04
+  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!1 &1573368966
 GameObject:
   m_ObjectHideFlags: 0
