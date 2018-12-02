@@ -43,27 +43,26 @@ public class Spawn_Flower : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
             Debug.Log("Button Pressed");
-                if (flower_count < 50)
-                {
+            if (flower_count < 50)
+            {
 
-                    CreateElements();
-                    
-                }
-                if (flower_count >= 50)
-                {
-                    Debug.Log("Flower Quota Reached");
-                    return;
-                }
+                CreateElements();
+
+            }
+            if (flower_count >= 500)
+            {
+                Debug.Log("Flower Quota Reached");
+                return;
+            }
         }
     }
-
     void CreateElements()
     {
         //if object been instantiated in last .4 seconds 
         //Debug.Log(timeSinceInst);
         if (timeSinceInst < 1.0f)
         {
-            return;
+            //return;
         }
         timeSinceInst = 0f;
         Player = GameObject.Find("LeftHandAnchor");
@@ -73,7 +72,7 @@ public class Spawn_Flower : MonoBehaviour
 
         Transform PlayerPosition = Player.transform;
         PlayerPosition.position = new Vector3(Player.transform.position.x, flowerPosY, Player.transform.position.z);
-        
+
         elem = Instantiate(prefab, PlayerPosition.position, prefab.rotation) as Transform;
         Debug.Log("Made Flower");
 
