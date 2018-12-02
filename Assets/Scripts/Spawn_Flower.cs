@@ -9,7 +9,7 @@ public class Spawn_Flower : MonoBehaviour
     public Transform sunflower;
     Rigidbody plant;
 
-    public float flowerPosY = -5.0f;
+    public float flowerPosY = 0.0f;
 
     //number of elements to be initiated 
     public int NumElements = 1;
@@ -49,9 +49,10 @@ public class Spawn_Flower : MonoBehaviour
                     CreateElements();
                     
                 }
-                if (flower_count == 50)
+                if (flower_count >= 50)
                 {
                     Debug.Log("Flower Quota Reached");
+                    return;
                 }
         }
     }
@@ -59,8 +60,8 @@ public class Spawn_Flower : MonoBehaviour
     void CreateElements()
     {
         //if object been instantiated in last .4 seconds 
-        Debug.Log(timeSinceInst);
-        if (timeSinceInst < 5.0f)
+        //Debug.Log(timeSinceInst);
+        if (timeSinceInst < 1.0f)
         {
             return;
         }
@@ -77,8 +78,10 @@ public class Spawn_Flower : MonoBehaviour
         Debug.Log("Made Flower");
 
         //update the position and rotation of the object
-        elem.transform.Translate(new Vector3(DistFromPlayer, 0, 0));
+        elem.transform.Translate(new Vector3(DistFromPlayer, 7, 0));
 
         flower_count++;
+        //Debug.Log("added to count ");
+        return;
     }
 }
