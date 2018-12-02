@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawn_Flower : MonoBehaviour {
+public class Spawn_Flower : MonoBehaviour
+{
 
     public int flower_count;
     public Transform sunflower;
     Rigidbody plant;
 
-    public float flowerPosY = 1.989994f;
+    public float flowerPosY = -5.0f;
 
     //number of elements to be initiated 
     public int NumElements = 1;
@@ -22,55 +23,62 @@ public class Spawn_Flower : MonoBehaviour {
     //how many elements have been created
     private int generatedElementsCount = 0;
 
+    public int updateCounter;
+
+    public float timeSinceInst = 0;
+
     // Use this for initialization
-    void Start () {
-        Player = GameObject.Find("LeftHandAnchor");
-        flower_count = 0;
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //if "A" pressed this frame
-		if (OVRInput.GetDown(OVRInput.Button.One))
-        {
-            //Debug.Log("Button Pressed");
-            //SpawnFlower();
-            if(flower_count < 50)
-            {
-                CreateElements();
-            }
-            if(flower_count ==50)
-            {
-                Debug.Log("Flower Quota Reached");
-            }
-           
-        }
-	}
-    void CreateElements()
+    void Start()
     {
         Player = GameObject.Find("LeftHandAnchor");
-            //update total elements created
-            generatedElementsCount++;
-            //name of the instatntiated object
-            string objectName = "Element_" + generatedElementsCount;
+        flower_count = 0;
 
-            //create the object as a transform
-            Transform elem;
-
-            Transform PlayerPosition = Player.transform; 
-            PlayerPosition.position = new Vector3(Player.transform.position.x, flowerPosY, Player.transform.position.z);
-
-            elem = Instantiate(prefab, PlayerPosition.position, Player.transform.rotation) as Transform;
-
-            elem.name = objectName;
-      
-            //update the position and rotation of the object
-            //elem.transform.Rotate(new Vector3(0, 0, 0));
-            elem.transform.Translate(new Vector3(DistFromPlayer, 0, 0));
-           
-            flower_count++;
-            //Make adjustments, so not so many and maybe tinker position/spacing
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        timeSinceInst += Time.deltaTime;
+        //if "A" pressed this frame
+        if (OVRInput.GetDown(OVRInput.Button.One))
+        {
+            Debug.Log("Button Pressed");
+                if (flower_count < 50)
+                {
+
+                    CreateElements();
+                    
+                }
+                if (flower_count == 50)
+                {
+                    Debug.Log("Flower Quota Reached");
+                }
+        }
+    }
+
+    void CreateElements()
+    {
+        //if object been instantiated in last .4 seconds 
+        Debug.Log(timeSinceInst);
+        if (timeSinceInst < 5.0f)
+        {
+            return;
+        }
+        timeSinceInst = 0f;
+        Player = GameObject.Find("LeftHandAnchor");
+
+        //create the object as a transform
+        Transform elem;
+
+        Transform PlayerPosition = Player.transform;
+        PlayerPosition.position = new Vector3(Player.transform.position.x, flowerPosY, Player.transform.position.z);
+        
+        elem = Instantiate(prefab, PlayerPosition.position, prefab.rotation) as Transform;
+        Debug.Log("Made Flower");
+
+        //update the position and rotation of the object
+        elem.transform.Translate(new Vector3(DistFromPlayer, 0, 0));
+
+        flower_count++;
+    }
 }

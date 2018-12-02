@@ -897,6 +897,7 @@ MonoBehaviour:
   NumElements: 5
   prefab: {fileID: 2091833280}
   Player: {fileID: 0}
+  updateCounter: 0
 --- !u!114 &201596137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5610,7 +5611,8 @@ MonoBehaviour:
   flowerPosY: 1.989994
   NumElements: 5
   prefab: {fileID: 2091833280}
-  Player: {fileID: 0}
+  Player: {fileID: 1256408060}
+  updateCounter: 0
 --- !u!135 &1256408063
 SphereCollider:
   m_ObjectHideFlags: 0
