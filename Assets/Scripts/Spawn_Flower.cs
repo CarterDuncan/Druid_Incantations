@@ -43,7 +43,7 @@ public class Spawn_Flower : MonoBehaviour
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
             Debug.Log("Button Pressed");
-            if (flower_count < 50)
+            if (flower_count < 500)
             {
 
                 CreateElements();
