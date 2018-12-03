@@ -38,7 +38,7 @@ public class GrassCreation : MonoBehaviour
         float horizontalSpeed = horizontalVelocity.magnitude;
         if (updateCounter / 50 == 1)
         {
-            if (horizontalSpeed > 0 && grass_counter < 100)
+            if (horizontalSpeed > 0 && grass_counter < 1000)
             {
                 dist_travelled = 0;
                 Instantiate(grass, Behind_Player.transform.position, Behind_Player.transform.rotation);
@@ -47,7 +47,7 @@ public class GrassCreation : MonoBehaviour
                 updateCounter = 0;
             }
         }
-        if (grass_counter == 100 && debug_counter == 0)
+        if (grass_counter == 1000 && debug_counter == 0)
         {
             Debug.Log("Grass Quota Reached");
             debug_counter++;
